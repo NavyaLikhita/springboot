@@ -55,7 +55,7 @@ a {
 		</div>
 
 		<div class="row text center">
-			<form:form action="flightEditSearch" method="GET">
+			<form:form action="searched" method="GET">
 				<div class="input-field col s6">
 					<input id="id" type="number" class="validate" name="flight_id" required>
 					<label class="active">Flight Id:</label>
@@ -68,7 +68,7 @@ a {
 		</div>
 		<div class="row">
 			<div class="card col s4 offset-s4 center">
-				<form:form action="flightModify" method="POST"
+				<form:form action="/modified" method="POST"
 					modelAttribute="flight">
 					<div class="row">
 						<h5>Update Flight</h5>

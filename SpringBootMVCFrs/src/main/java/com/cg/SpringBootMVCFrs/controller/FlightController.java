@@ -6,10 +6,12 @@ package com.cg.SpringBootMVCFrs.controller;
 import java.math.BigInteger;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -43,8 +45,8 @@ public class FlightController {
 		return "Home";
 	}
 
-	// Send to Add Flight Page
-	@GetMapping(value = "/addFlight")
+	// Will Open Page To Add Flight 
+	@GetMapping(value = "/add")
 	public String getAddFlightPage(@ModelAttribute("flight") Flight flight) {
 		
 		
@@ -53,19 +55,23 @@ public class FlightController {
 		
 	}
 
-	// Add Flight
-	@PostMapping(value = "/flightAdd")
-	public ModelAndView addFlight(@ModelAttribute("flight") Flight flight) throws FlightExceptions {
-		
+	// Will Add The New Flight Details And Display Them
+	@PostMapping(value = "/added")
+	public ModelAndView addFlight(@Valid@ModelAttribute("flight") Flight flight, BindingResult result) throws FlightExceptions {
+		if(result.hasErrors()) {
+			
+			return new ModelAndView("AddFlight","flight",flight);
+			
+		}
 			flight.setFlightState(true);
 			flightService.addFlight(flight);
-			return new ModelAndView("ShowFlights", "flightList", flightService.viewAllFlight());//WHETHER VIEWALL OR 
+			return new ModelAndView("ShowFlights", "flightList", flightService.viewAllFlight());
 		
 		
 	}
 
-	// Send to View Flight Page
-	@GetMapping(value = "/showFlights")
+	// Display The Available Flights
+	@GetMapping(value = "/show")
 	public ModelAndView getShowFlightsPage() throws FlightExceptions {
 		
 		
@@ -74,8 +80,8 @@ public class FlightController {
 		
 	}
 
-	// Send to Search Flight Page
-	@GetMapping(value = "/searchFlight")
+	// Will Open Page To Search Flight 
+	@GetMapping(value = "/search")
 	public String getSearchFlightPage() {
 		
 			return "SearchFlight";
@@ -83,8 +89,8 @@ public class FlightController {
 		
 	}
 
-	// Show searched flight
-	@GetMapping(value = "/flightSearch")
+	// Shows The Searched Flight Details
+	@GetMapping(value = "/found")
 	public ModelAndView getSearchFlightsResult(@RequestParam("flight_id") BigInteger flightId) throws FlightExceptions {
 		
 		
@@ -93,16 +99,16 @@ public class FlightController {
 		
 	}
 
-	// Send to Modify Flight Page
-	@GetMapping(value = "/modifyFlight")
+	// Will Open Page To Modify Flight 
+	@GetMapping(value = "/modify")
 	public String getModifyFlightPage(@ModelAttribute("flight") Flight flight) {
 		
 			return "ModifyFlight";
 		
 	}
 
-	// Show Flight Details to edit
-	@GetMapping(value = "/flightEditSearch")
+	// Shows The Flight To Be Modified
+	@GetMapping(value = "/searched")
 	public ModelAndView getEditFlightsSearchResult(@RequestParam("flight_id") BigInteger flightId,
 			@ModelAttribute("flight") Flight flight) throws FlightExceptions {
 		
@@ -111,17 +117,17 @@ public class FlightController {
 		
 	}
 
-	// Save Modifies Flight Values
-	@PostMapping(value = "/flightModify")
-	public String modifyFlight(@ModelAttribute("flight") Flight flight) throws FlightExceptions {
+	// Modifies The Flight And Returns To--
+	@PostMapping(value = "/modified")
+	public ModelAndView modifyFlight(@ModelAttribute("flight") Flight flight) throws FlightExceptions {
 		
 			flightService.modifyFlight(flight);
-			return "AdminHome";
+			return new ModelAndView("ShowFlights", "flightList", flightService.viewAllFlight());
 		
 	}
 
-	// Send to Remove Flight Page
-	@GetMapping(value = "/removeFlight")
+	// Will Open Page To Modify Flight 
+	@GetMapping(value = "/remove")
 	public String getRemoveFlightPage(@ModelAttribute("flight") Flight flight) {
 		
 		
@@ -130,8 +136,8 @@ public class FlightController {
 		
 	}
 
-	// Show Flight Details to remove
-	@GetMapping(value = "/flightRemoveSearch")
+	// Shows The Flight To Be Removed
+	@GetMapping(value = "/removesearch")
 	public ModelAndView getRemoveFlightsSearchResult(@RequestParam("flight_id") BigInteger flightId,
 			@ModelAttribute("flight") Flight flight) throws FlightExceptions {
 		
@@ -139,12 +145,12 @@ public class FlightController {
 		
 	}
 
-	// Remove Flight
-	@PostMapping(value = "/flightRemove")
-	public String flightRemove(@RequestParam("flight_id") BigInteger flightId) throws FlightExceptions {
+	//Removes The Flight And Returns To--
+	@PostMapping(value = "/removed")
+	public ModelAndView flightRemove(@RequestParam("flight_id") BigInteger flightId) throws FlightExceptions {
 		
 			flightService.deleteFlight(flightId);
-			return "AdminHome";
+			return new ModelAndView("ShowFlights", "flightList", flightService.viewAllFlight());
 		
 
 	}

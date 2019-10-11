@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.frs.SpringBootFrs.dto.Flight;
+import com.cg.frs.SpringBootFrs.exception.FlightExceptions;
 import com.cg.frs.SpringBootFrs.service.FlightService;
 
 @RestController
@@ -38,7 +39,7 @@ public class FlightController {
 	}
 
 	@GetMapping(value = "/show/data")
-	public ResponseEntity<List<Flight>> getAllData() {							//showing all the flights
+	public ResponseEntity<List<Flight>> getAllData() throws FlightExceptions {							//showing all the flights
 
 		List<Flight> flightList = flightService.viewAllFlight();
 		if (flightList.isEmpty()) {
@@ -49,7 +50,7 @@ public class FlightController {
 	}
 
 	@GetMapping(value="/search")
-	public ResponseEntity<Flight> searchData(@RequestParam BigInteger flightId){		//searching flight by Id
+	public ResponseEntity<Flight> searchData(@RequestParam BigInteger flightId) throws FlightExceptions{		//searching flight by Id
 		
 		Flight flightSearched=flightService.searchFlight(flightId);
 		
@@ -62,7 +63,7 @@ public class FlightController {
 	}
 
 	@PutMapping(value="/modify")
-	public ResponseEntity<Flight> modifyData(@ModelAttribute Flight flight){			//modifying the flight
+	public ResponseEntity<Flight> modifyData(@ModelAttribute Flight flight) throws FlightExceptions{			//modifying the flight
 		
 Flight flightToBeModified=flightService.modifyFlight(flight);
 		
@@ -76,7 +77,7 @@ Flight flightToBeModified=flightService.modifyFlight(flight);
 	
 	
 	@PostMapping(value="/delete")
-	public boolean deleteData(@RequestParam BigInteger flightId){					//removing flight
+	public boolean deleteData(@RequestParam BigInteger flightId) throws FlightExceptions{					//removing flight
 		
 boolean flightToBeDeleted=flightService.deleteFlight(flightId);
 		

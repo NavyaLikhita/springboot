@@ -30,6 +30,7 @@ public class FlightServiceImpl implements FlightService {
 	
 	
 	@Override
+	//Saves the Flight and sets the states to true
 	public Flight addFlight(Flight flight) {
 		// TODO Auto-generated method stub
 		
@@ -39,6 +40,7 @@ public class FlightServiceImpl implements FlightService {
 	}
 
 	@Override
+	//Displays all the flights available
 	public List<Flight> viewAllFlight() throws FlightExceptions {
 		// TODO Auto-generated method stub
 		List<Flight> flightList=flightDao.findAll();
@@ -51,11 +53,12 @@ public class FlightServiceImpl implements FlightService {
 	}
 
 	@Override
+	//Searches the available flight through entered flight id
 	public Flight searchFlight(BigInteger flightId) throws FlightExceptions {
 		// TODO Auto-generated method stub
 		Flight flightFound=flightDao.findByFlightId(flightId);
 		
-		if(flightFound==null) {
+		if(flightFound==null || flightFound.getFlightState()==false) {
 			
 			throw new FlightExceptions("NO FLIGHT HAVING THIS ID IS AVAILABLE");
 			
@@ -64,6 +67,7 @@ public class FlightServiceImpl implements FlightService {
 	}
 
 	@Override
+	//Modifies the flight by flight id
 	public Flight modifyFlight(Flight flight) throws FlightExceptions {
 		// TODO Auto-generated method stub
 		
@@ -82,6 +86,7 @@ public class FlightServiceImpl implements FlightService {
 	}
 
 	@Override
+	//Deletes the flight by setting state to false
 	public boolean deleteFlight(BigInteger flightId) throws FlightExceptions {
 		// TODO Auto-generated method stub
 		Flight removedFlight=flightDao.findByFlightId(flightId);

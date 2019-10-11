@@ -43,9 +43,9 @@ a {
 		</div>
 
 		<div class="row text center">
-			<form:form action="flightSearch" method="GET">
+			<form:form action="found" method="GET">
 				<div class="input-field col s6">
-					<input id="id" type="number" class="validate" name="flight_id">
+					<input id="id" type="number" class="validate" name="flight_id" required>
 					<label class="active">Flight Id:</label>
 					<button class="btn waves-effect waves-teal open-button col s6"
 						type="submit">

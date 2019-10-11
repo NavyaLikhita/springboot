@@ -12,7 +12,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <style type="text/css">
@@ -53,30 +53,35 @@ a {
 	<div class="container">
 		<div class="row">
 			<div class="card col s4 offset-s4 center">
-				<form:form action="flightAdd" method="POST" modelAttribute="flight">
+				<form:form action="added" method="POST" modelAttribute="flight" id="form" >
 					<div class="row">
 						<h5>Add Flight</h5>
 						<br>
 						<div class="input-field col s12">
-							<form:input id="flight_model" type="text" class="validate"
-								path="flightModel"></form:input>
+							<form:input id="flight_model" type="text"  class="validate"
+								path="flightModel"  ></form:input>
 							<label for="flight_model">Flight Model</label>
-							<span id="flight_model_error" style="color: red"></span>
+							<span id="model_error" style="color:red"></span>
+            <span style="color:red">${error}</span>
+							
 						</div>
 						<div class="input-field col s12">
 							<form:input id="carrier_name" type="text" class="validate"
-								path="carrierName" ></form:input>
+								path="carrierName"  ></form:input>
 							<label for="carrier_name">Carrier Name</label>
-							<span id="carrier_name_error" style="color: red"></span>
+							<span id="carrier_error" style="color:red"></span>
+							<span style="color:red">${error}</span>
 						</div>
 						<div class="input-field col s12">
 							<form:input id="seat_capacity" type="number" class="validate"
-								path="seatCapacity"></form:input>
+								path="seatCapacity"  ></form:input>
 							<label for="seat_capacity">Seat Count</label>
-							<span id="seat_capacity_error" style="color: red"></span>
+							<span id="capacity_error" style="color:red"></span>
+							<span style="color:red">${error}</span>
+							
 						</div>
-						<br> <input type="submit" value="Submit"
-							class="waves-effect waves-light btn-large"></input>
+						<br> <button type="submit" value="submit"
+							class="waves-effect waves-light btn-large">submit</button>
 					</div>
 				</form:form>
 			</div>
@@ -112,18 +117,82 @@ a {
 
 	<!-- Template Main Javascript File -->
 	<script src='<c:url value = "/webjars/js/main.js" />'></script>
+	 <script type="text/javascript">
+	
+	 $(function () {
+		 
+		 $("#model_error").hide();
+		 $("#carrier_error").hide();
+		 $("#capacity_error").hide();
+		 
+		 var error_model = false;
+		 
+		 $("#flight_model").focusout(function () {
+				check_model();
+			}
+		 
+		 $("#carrier_name").focusout(function () {
+				check_carrier();
+			}
+		 
+		 $("#seat_capacity").focusout(function () {
+				check_capacity();
+			}
+		 
+		 
+		 );
+	 
 	
 	
-	<script type="text/javascript">
-
-
-var num=document.myform.seat_capacity_error.value;  
-
-
-
-
-</script>
+		 
+		 function check_model() {
+				var length = $("#flight_model").val().length;
+				var pattern = new RegExp("^[A-Z0-9]+$");
+				if(length<1 || !pattern.test($("#flight_model").val())){
+					$("#model_error").html("Please enter Alphanumeric with Capital Letters!");
+					$("#model_error").show();
+					error_model = true;
+				}
+				else{
+					$("#model_error").hide();
+				}
 			
+		 
+	 }
+		 
+		 
+		 function check_carrier()() {
+				var length = $("#flight_model").val().length;
+				var pattern = new RegExp("^[A-Z]+$");
+				if(length<1 || !pattern.test($("#flight_model").val())){
+					$("#model_error").html("Please enter Capital Letters!");
+					$("#model_error").show();
+					error_model = true;
+				}
+				else{
+					$("#model_error").hide();
+				}
+			
+		 
+	 }
+		 
+		 
+		 $("#form").submit(function(){
+			 error_model = false;
+				
+				check_model();
+				if(error_model == false){
+					return true;
+				}
+				else{
+					return false;
+				}
+			});
+		});
+	 
+	
+	</script> 
+	
 	
 	
 </body>
