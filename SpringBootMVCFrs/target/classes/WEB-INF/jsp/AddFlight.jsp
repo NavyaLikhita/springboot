@@ -125,23 +125,28 @@ a {
 		 $("#carrier_error").hide();
 		 $("#capacity_error").hide();
 		 
+		 
 		 var error_model = false;
+		 var carrier_model = false;
+		 var capacity_model = false;
 		 
 		 $("#flight_model").focusout(function () {
 				check_model();
 			}
+		 	 
+		 );
 		 
 		 $("#carrier_name").focusout(function () {
 				check_carrier();
 			}
-		 
+		 	 
+		 );
+	 
 		 $("#seat_capacity").focusout(function () {
 				check_capacity();
 			}
-		 
-		 
+		 	 
 		 );
-	 
 	
 	
 		 
@@ -161,27 +166,47 @@ a {
 	 }
 		 
 		 
-		 function check_carrier()() {
-				var length = $("#flight_model").val().length;
+
+		 function check_carrier() {
+				var length = $("#carrier_name").val().length;
 				var pattern = new RegExp("^[A-Z]+$");
-				if(length<1 || !pattern.test($("#flight_model").val())){
-					$("#model_error").html("Please enter Capital Letters!");
-					$("#model_error").show();
-					error_model = true;
+				if(length<1 || !pattern.test($("#carrier_name").val())){
+					$("#carrier_error").html("Please enter  Capital Letters!");
+					$("#carrier_error").show();
+					error_carrier = true;
 				}
 				else{
-					$("#model_error").hide();
+					$("#carrier_error").hide();
+				}
+			
+		 
+	 }
+		 
+		 function check_capacity() {
+				var length = $("#seat_capacity").val().length;
+				
+				if(length<1 || length>1000){
+					$("#capacity_error").html("Please enter appropriate seat capacity!");
+					$("#capacity_error").show();
+					error_carrier = true;
+				}
+				else{
+					$("#carrier_error").hide();
 				}
 			
 		 
 	 }
 		 
 		 
+		 
+		 
 		 $("#form").submit(function(){
 			 error_model = false;
+			 error_carrier = false;
 				
 				check_model();
-				if(error_model == false){
+				check_carrier();
+				if(error_model == false && error_carrier == false && error_capacity == false){
 					return true;
 				}
 				else{

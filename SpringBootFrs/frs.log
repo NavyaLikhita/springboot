@@ -1,0 +1,21 @@
+2019-10-11 10:23:20,921 INFO com.cg.frs.SpringBootFrs.SpringBootFrsApplication [main] Starting SpringBootFrsApplication on DESKTOP-MJPF22H with PID 9852 (C:\Users\ADMIN\git\springboot\SpringBootFrs\target\classes started by ADMIN in C:\Users\ADMIN\git\springboot\SpringBootFrs)
+2019-10-11 10:23:20,923 DEBUG com.cg.frs.SpringBootFrs.SpringBootFrsApplication [main] Running with Spring Boot v2.1.9.RELEASE, Spring v5.1.10.RELEASE
+2019-10-11 10:23:20,923 INFO com.cg.frs.SpringBootFrs.SpringBootFrsApplication [main] The following profiles are active: production
+2019-10-11 10:23:21,471 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-10-11 10:23:21,471 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-10-11 10:23:21,521 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 47ms. Found 1 repository interfaces.
+2019-10-11 10:23:21,527 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-10-11 10:23:21,527 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-10-11 10:23:21,538 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 8ms. Found 1 repository interfaces.
+2019-10-11 10:23:21,837 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$dd1758a0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-11 10:23:22,041 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 9880 (http)
+2019-10-11 10:23:22,158 INFO org.springframework.web.context.ContextLoader [main] Root WebApplicationContext: initialization completed in 1200 ms
+2019-10-11 10:23:23,520 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-10-11 10:23:24,023 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-11 10:23:24,055 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-10-11 10:23:24,237 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 9880 (http) with context path ''
+2019-10-11 10:23:24,239 INFO com.cg.frs.SpringBootFrs.SpringBootFrsApplication [main] Started SpringBootFrsApplication in 3.697 seconds (JVM running for 4.399)
+2019-10-11 10:23:24,240 INFO com.cg.frs.SpringBootFrs.SpringBootFrsApplication [main] Running.
+2019-10-11 10:23:50,499 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(2)-127.0.0.1] Application shutdown requested.
+2019-10-11 10:23:50,502 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [RMI TCP Connection(2)-127.0.0.1] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-11 10:23:50,503 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [RMI TCP Connection(2)-127.0.0.1] Closing JPA EntityManagerFactory for persistence unit 'default'
