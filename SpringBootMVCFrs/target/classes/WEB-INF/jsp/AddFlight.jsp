@@ -89,6 +89,13 @@ a {
 	</div>
 	<!-- Body -->
 
+<button onclick="goBack()" class="waves-effect waves-light btn-large">Go Back</button>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
 	<!-- Footer -->
 	<jsp:include page="footer.jsp"></jsp:include>
 	<!-- Footer -->
