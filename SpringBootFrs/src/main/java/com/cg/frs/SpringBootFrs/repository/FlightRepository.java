@@ -23,9 +23,7 @@ public interface FlightRepository extends JpaRepository<Flight, BigInteger> {
 	
 	public Flight findByFlightId(BigInteger Id);
 	
-	//@Modifying
-	//@Query(value="UPDATE Flight SET flightMode=:model,carrierName=:carrier,flightCapacity=:capacity WHERE flightId=Id")
-	//public Flight modifyByFlightId(BigInteger Id);
+	
 	
 	
 

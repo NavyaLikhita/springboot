@@ -65,7 +65,7 @@ a {
 						</div>
 						<div class="input-field col s12">
 							<form:input id="carrier_name" type="text" class="validate"
-								path="carrierName"></form:input>
+								path="carrierName" ></form:input>
 							<label for="carrier_name">Carrier Name</label>
 							<span id="carrier_name_error" style="color: red"></span>
 						</div>
@@ -114,30 +114,15 @@ a {
 	<script src='<c:url value = "/webjars/js/main.js" />'></script>
 	
 	
-	$(function() {
-			$("#flight_model_error").hide();
-			$("#carrier_name_error").hide();
-			$("#seat_capacity_error").hide();
+	<script type="text/javascript">
 
-			var error_flight_model = false;
-			var error_carrier_name = false;
-			var error_seat_capacity = false;
-			
-			$("#flight_model").focusout(function() {
-				check_flight_model();
-			});
-			
-			$("#carrier_name").focusout(function() {
-				check_carrier();
-			});
-	
-	
-			$("#seat_capacity").focusout(function() {
-				check_seat_capacity();
-			});
-			
-			
-			function check_flight_model() {
+
+var num=document.myform.seat_capacity_error.value;  
+
+
+
+
+</script>
 			
 	
 	

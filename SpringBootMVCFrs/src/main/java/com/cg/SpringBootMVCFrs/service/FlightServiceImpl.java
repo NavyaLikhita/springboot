@@ -33,7 +33,7 @@ public class FlightServiceImpl implements FlightService {
 	public Flight addFlight(Flight flight) {
 		// TODO Auto-generated method stub
 		
-		
+		flight.setFlightState(true);
 		
 		return flightDao.save(flight);
 	}
@@ -78,7 +78,7 @@ public class FlightServiceImpl implements FlightService {
 		flightToBeModified.setSeatCapacity(flight.getSeatCapacity());
 		flightToBeModified.setFlightState(true);
 		}
-		return flightToBeModified;
+		return flightDao.save(flightToBeModified);
 	}
 
 	@Override

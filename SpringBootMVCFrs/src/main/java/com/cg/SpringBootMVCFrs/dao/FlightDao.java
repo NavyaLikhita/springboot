@@ -20,6 +20,9 @@ import com.cg.SpringBootMVCFrs.dto.Flight;
 @Repository("flightDao")
 public interface FlightDao extends JpaRepository<Flight, BigInteger> {
 
+	
+	public Flight save(Flight flight);
+	
 	@Query("FROM Flight WHERE flightState=true")
 	public List<Flight> viewAll();
 	

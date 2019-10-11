@@ -31,8 +31,7 @@ import com.cg.SpringBootMVCFrs.service.FlightService;
 
 public class FlightController {
 
-	@Autowired
-	HttpSession session;
+	
 	
 	@Autowired
 	FlightService flightService;
@@ -46,26 +45,22 @@ public class FlightController {
 
 	// Send to Add Flight Page
 	@GetMapping(value = "/addFlight")
-	public String getAddFlightPage(@Validated@ModelAttribute("flight") Flight flight) {
+	public String getAddFlightPage(@ModelAttribute("flight") Flight flight) {
 		
-		if (session.getAttribute("userRole") != null && session.getAttribute("userRole").equals("admin")) {
+		
 			return "AddFlight";
-		} else {
-			return "LogIn";
-		}
+		
 		
 	}
 
 	// Add Flight
 	@PostMapping(value = "/flightAdd")
-	public ModelAndView addFlight(@Validated@ModelAttribute("flight") Flight flight) throws FlightExceptions {
-		if (session.getAttribute("userRole") != null && session.getAttribute("userRole").equals("admin")) {
+	public ModelAndView addFlight(@ModelAttribute("flight") Flight flight) throws FlightExceptions {
+		
 			flight.setFlightState(true);
 			flightService.addFlight(flight);
 			return new ModelAndView("ShowFlights", "flightList", flightService.viewAllFlight());//WHETHER VIEWALL OR 
-		} else {
-			return new ModelAndView("LogIn");
-		}
+		
 		
 	}
 
@@ -73,87 +68,71 @@ public class FlightController {
 	@GetMapping(value = "/showFlights")
 	public ModelAndView getShowFlightsPage() throws FlightExceptions {
 		
-		if (session.getAttribute("userRole") != null && session.getAttribute("userRole").equals("admin")) {
+		
 			return new ModelAndView("ShowFlights", "flightList", flightService.viewAllFlight());
-		} else {
-			return new ModelAndView("LogIn");
-		}
+		
 		
 	}
 
 	// Send to Search Flight Page
 	@GetMapping(value = "/searchFlight")
 	public String getSearchFlightPage() {
-		if (session.getAttribute("userRole") != null && session.getAttribute("userRole").equals("admin")) {
+		
 			return "SearchFlight";
-		} else {
-			return "LogIn";
-		}
+		
 		
 	}
 
 	// Show searched flight
 	@GetMapping(value = "/flightSearch")
-	public ModelAndView getSearchFlightsResult(@Validated@RequestParam("flight_id") BigInteger flightId) throws FlightExceptions {
+	public ModelAndView getSearchFlightsResult(@RequestParam("flight_id") BigInteger flightId) throws FlightExceptions {
 		
-		if (session.getAttribute("userRole") != null && session.getAttribute("userRole").equals("admin")) {
+		
 			return new ModelAndView("SearchFlight", "flight", flightService.searchFlight(flightId));
-		} else {
-			return new ModelAndView("LogIn");
-		}
+		
 		
 	}
 
 	// Send to Modify Flight Page
 	@GetMapping(value = "/modifyFlight")
-	public String getModifyFlightPage(@Validated@ModelAttribute("flight") Flight flight) {
-		if (session.getAttribute("userRole") != null && session.getAttribute("userRole").equals("admin")) {
+	public String getModifyFlightPage(@ModelAttribute("flight") Flight flight) {
+		
 			return "ModifyFlight";
-		} else {
-			return "LogIn";
-		}
+		
 	}
 
 	// Show Flight Details to edit
 	@GetMapping(value = "/flightEditSearch")
-	public ModelAndView getEditFlightsSearchResult(@Validated@RequestParam("flight_id") BigInteger flightId,@Validated
+	public ModelAndView getEditFlightsSearchResult(@RequestParam("flight_id") BigInteger flightId,
 			@ModelAttribute("flight") Flight flight) throws FlightExceptions {
 		
-		if (session.getAttribute("userRole") != null && session.getAttribute("userRole").equals("admin")) {
+		
 			return new ModelAndView("ModifyFlight", "flight", flightService.searchFlight(flightId));
-		} else {
-			return new ModelAndView("LogIn");
-		}
 		
 	}
 
 	// Save Modifies Flight Values
-	@PostMapping(value = "flightModify")
-	public String modifyFlight(@Validated@ModelAttribute("flight") Flight flight) throws FlightExceptions {
-		if (session.getAttribute("userRole") != null && session.getAttribute("userRole").equals("admin")) {
+	@PostMapping(value = "/flightModify")
+	public String modifyFlight(@ModelAttribute("flight") Flight flight) throws FlightExceptions {
+		
 			flightService.modifyFlight(flight);
 			return "AdminHome";
-		} else {
-			return "LogIn";
-		}
 		
 	}
 
 	// Send to Remove Flight Page
 	@GetMapping(value = "/removeFlight")
-	public String getRemoveFlightPage(@Validated@ModelAttribute("flight") Flight flight) {
+	public String getRemoveFlightPage(@ModelAttribute("flight") Flight flight) {
 		
-		if (session.getAttribute("userRole") != null && session.getAttribute("userRole").equals("admin")) {
+		
 			return "RemoveFlight";
-		} else {
-			return "LogIn";
-		}
+		
 		
 	}
 
 	// Show Flight Details to remove
 	@GetMapping(value = "/flightRemoveSearch")
-	public ModelAndView getRemoveFlightsSearchResult(@Validated@RequestParam("flight_id") BigInteger flightId,
+	public ModelAndView getRemoveFlightsSearchResult(@RequestParam("flight_id") BigInteger flightId,
 			@ModelAttribute("flight") Flight flight) throws FlightExceptions {
 		
 			return new ModelAndView("RemoveFlight", "flight", flightService.searchFlight(flightId));
@@ -162,13 +141,11 @@ public class FlightController {
 
 	// Remove Flight
 	@PostMapping(value = "/flightRemove")
-	public String flightRemove(@Validated@RequestParam("flight_id") BigInteger flightId) throws FlightExceptions {
-		if (session.getAttribute("userRole") != null && session.getAttribute("userRole").equals("admin")) {
+	public String flightRemove(@RequestParam("flight_id") BigInteger flightId) throws FlightExceptions {
+		
 			flightService.deleteFlight(flightId);
 			return "AdminHome";
-		} else {
-			return "LogIn";
-		}
+		
 
 	}
 }

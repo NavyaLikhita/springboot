@@ -58,7 +58,7 @@ a {
 			<form:form action="flightRemoveSearch" method="GET">
 				<div class="input-field col s6">
 					<input id="id" type="number" class="validate" name="flight_id"
-						value="${flight.flightId}"> <label class="active">Flight
+						value="${flight.flightId}" required> <label class="active">Flight
 						Id</label>
 					<button class="btn waves-effect waves-teal open-button col s6"
 						type="submit">

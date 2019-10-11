@@ -23,16 +23,16 @@ public class Flight {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "flight_number")
 	private BigInteger flightId;
-	@NotEmpty(message = "Don't Leave Flight Model Empty")
+	//@NotEmpty(message = "Don't Leave Flight Model Empty")
 	@Column(name = "flight_model")
 	private String flightModel;
-	@NotEmpty(message = "Don't Leave Flight Carrier Empty")
+	//@NotEmpty(message = "Don't Leave Flight Carrier Empty")
 	@Column(name = "carrier_name")
 	private String carrierName;
-	@NotNull(message = "Enter Seat Capacity")
+	//@NotNull(message = "Enter Seat Capacity")
 	@Column(name = "seat_capacity")
 	private Integer seatCapacity;
-	@NotBlank
+	//@NotBlank
 	@Column(name = "flightState")
 	private Boolean flightState;
 
