@@ -1,6 +1,6 @@
 package com.cg.frs.SpringBootFrs.service;
 /**
- * @author Navya
+ * @author NAVYA
  *
  */
 import java.math.BigInteger;
@@ -17,6 +17,8 @@ import com.cg.frs.SpringBootFrs.repository.FlightRepository;
 @Service("flightService")
 public class FlightServiceImpl implements FlightService {
 
+	// private static final Logger logger = LoggerFactory.getLogger(FlightServiceImpl.class);
+	
 	@Autowired
 	FlightRepository flightRepository;			//Making repository bean
 	

@@ -4,11 +4,13 @@
 package com.cg.frs.SpringBootFrs.exception;
 
 /**
- * @author Navya
+ * @author NAVYA
  *
  */
 public class FlightExceptions extends Exception{
 
+	// private static final Logger logger = LoggerFactory.getLogger(FlightExceptions.class);
+	
 	/**
 	 * 
 	 */

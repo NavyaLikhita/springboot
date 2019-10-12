@@ -20,12 +20,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+
+import com.cg.SpringBootMVCFrs.SpringBootMvcFrsApplication;
 import com.cg.SpringBootMVCFrs.dto.Flight;
 import com.cg.SpringBootMVCFrs.exception.FlightExceptions;
 import com.cg.SpringBootMVCFrs.service.FlightService;
 
 /**
- * @author Navya
+ * @author NAVYA
  *
  */
 @ComponentScan
@@ -33,7 +35,7 @@ import com.cg.SpringBootMVCFrs.service.FlightService;
 
 public class FlightController {
 
-	
+	// private static final Logger logger = LoggerFactory.getLogger(FlightController.class);
 	
 	@Autowired
 	FlightService flightService;
@@ -62,9 +64,22 @@ public class FlightController {
 			
 			return new ModelAndView("AddFlight","flight",flight);
 			
+		}else {
+		
+		try {
+		if(flight.getFlightModel()==null || flight.getCarrierName()==null || flight.getSeatCapacity()==null) {
+			
+			throw new FlightExceptions("NO DETAILS ENTERED");
+		}}catch(FlightExceptions e) {
+			
+			return new ModelAndView("ErrorPage");
+			
+		}
 		}
 			flight.setFlightState(true);
 			flightService.addFlight(flight);
+			
+			
 			return new ModelAndView("ShowFlights", "flightList", flightService.viewAllFlight());
 		
 		
@@ -92,6 +107,7 @@ public class FlightController {
 	// Shows The Searched Flight Details
 	@GetMapping(value = "/found")
 	public ModelAndView getSearchFlightsResult(@RequestParam("flight_id") BigInteger flightId) throws FlightExceptions {
+		
 		
 		
 			return new ModelAndView("SearchFlight", "flight", flightService.searchFlight(flightId));

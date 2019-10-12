@@ -1,6 +1,6 @@
 package com.cg.frs.SpringBootFrs.controller;
 /**
- * @author Navya
+ * @author NAVYA
  *
  */
 import java.math.BigInteger;
@@ -23,12 +23,12 @@ import com.cg.frs.SpringBootFrs.service.FlightService;
 
 @RestController
 public class FlightController {
-
+	// private static final Logger logger = LoggerFactory.getLogger(FlightController.class);
 	@Autowired
 	FlightService flightService;
 
 	@PostMapping(value = "/add")
-	public ResponseEntity<Flight> addData(@ModelAttribute Flight flight) {		//adding the flight
+	public ResponseEntity<?> addData(@ModelAttribute Flight flight) {		//adding the flight
 		Flight flightToBeAdded = flightService.saveFlight(flight);
 
 		if (flightToBeAdded == null) {
@@ -39,7 +39,7 @@ public class FlightController {
 	}
 
 	@GetMapping(value = "/show/data")
-	public ResponseEntity<List<Flight>> getAllData() throws FlightExceptions {							//showing all the flights
+	public ResponseEntity<?> getAllData() throws FlightExceptions {							//showing all the flights
 
 		List<Flight> flightList = flightService.viewAllFlight();
 		if (flightList.isEmpty()) {
@@ -50,7 +50,7 @@ public class FlightController {
 	}
 
 	@GetMapping(value="/search")
-	public ResponseEntity<Flight> searchData(@RequestParam BigInteger flightId) throws FlightExceptions{		//searching flight by Id
+	public ResponseEntity<?> searchData(@RequestParam BigInteger flightId) throws FlightExceptions{		//searching flight by Id
 		
 		Flight flightSearched=flightService.searchFlight(flightId);
 		

@@ -12,12 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
+import com.cg.SpringBootMVCFrs.SpringBootMvcFrsApplication;
 import com.cg.SpringBootMVCFrs.dao.FlightDao;
 import com.cg.SpringBootMVCFrs.dto.Flight;
+import com.cg.SpringBootMVCFrs.exception.CustomGenericExeption;
 import com.cg.SpringBootMVCFrs.exception.FlightExceptions;
 
 /**
- * @author Navya
+ * @author NAVYA
  *
  */
 
@@ -25,6 +28,8 @@ import com.cg.SpringBootMVCFrs.exception.FlightExceptions;
 @Transactional
 public class FlightServiceImpl implements FlightService {
 
+	// private static final Logger logger = LoggerFactory.getLogger(FlightServiceImpl.class);
+	
 	@Autowired
 	FlightDao flightDao;
 	

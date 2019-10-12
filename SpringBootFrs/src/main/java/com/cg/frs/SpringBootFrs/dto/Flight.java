@@ -1,6 +1,6 @@
 package com.cg.frs.SpringBootFrs.dto;
 /**
- * @author Navya
+ * @author NAVYA
  *
  */
 import java.math.BigInteger;
@@ -19,6 +19,8 @@ import javax.validation.constraints.NotNull;
 @Table(name = "flight")
 public class Flight {
 
+	// private static final Logger logger = LoggerFactory.getLogger(Flight.class);
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "flight_number")

@@ -18,9 +18,12 @@ import javax.validation.constraints.NotNull;
 import org.springframework.context.annotation.ComponentScan;
 
 
+import com.cg.SpringBootMVCFrs.SpringBootMvcFrsApplication;
+
+
 
 /**
- * @author Navya
+ * @author NAVYA
  *
  */
 
@@ -29,11 +32,11 @@ import org.springframework.context.annotation.ComponentScan;
 	@Table(name="flight")
 	public class Flight {
 
-		
+		// private static final Logger logger = LoggerFactory.getLogger(Flight.class);
 
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
-		@Column(name="flight_number")
+		@Column(name="flight_id")
 		private BigInteger flightId;
 		@NotEmpty(message="Don't Leave Flight Model Empty")
 		@Column(name="flight_model")
