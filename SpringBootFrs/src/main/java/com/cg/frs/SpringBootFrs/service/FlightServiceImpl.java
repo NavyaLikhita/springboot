@@ -36,7 +36,7 @@ public class FlightServiceImpl implements FlightService {
 	@Override
 	public List<Flight> viewAllFlight() throws FlightExceptions {			//showing all flights available
 		// TODO Auto-generated method stub
-		List<Flight> flightList=flightRepository.findAll();
+		List<Flight> flightList=flightRepository.viewAll();
 		if(flightList.isEmpty()) {
 			
 			throw new FlightExceptions("NO FLIGHT IS AVAILABLE");

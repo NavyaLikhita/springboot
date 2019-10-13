@@ -27,7 +27,7 @@ public class FlightController {
 	@Autowired
 	FlightService flightService;
 
-	@PostMapping(value = "/add")
+	@PostMapping(value = "/flight/add")
 	public ResponseEntity<?> addData(@ModelAttribute Flight flight) {		//adding the flight
 		Flight flightToBeAdded = flightService.saveFlight(flight);
 
@@ -38,7 +38,7 @@ public class FlightController {
 		}
 	}
 
-	@GetMapping(value = "/show/data")
+	@GetMapping(value = "/flight/view")
 	public ResponseEntity<?> getAllData() throws FlightExceptions {							//showing all the flights
 
 		List<Flight> flightList = flightService.viewAllFlight();
@@ -49,7 +49,7 @@ public class FlightController {
 		}
 	}
 
-	@GetMapping(value="/search")
+	@GetMapping(value="/flight/search")
 	public ResponseEntity<?> searchData(@RequestParam BigInteger flightId) throws FlightExceptions{		//searching flight by Id
 		
 		Flight flightSearched=flightService.searchFlight(flightId);
@@ -62,7 +62,7 @@ public class FlightController {
 		
 	}
 
-	@PutMapping(value="/modify")
+	@PutMapping(value="/flight/modify")
 	public ResponseEntity<Flight> modifyData(@ModelAttribute Flight flight) throws FlightExceptions{			//modifying the flight
 		
 Flight flightToBeModified=flightService.modifyFlight(flight);
@@ -76,7 +76,7 @@ Flight flightToBeModified=flightService.modifyFlight(flight);
 	}
 	
 	
-	@PostMapping(value="/delete")
+	@PostMapping(value="/flight/delete")
 	public boolean deleteData(@RequestParam BigInteger flightId) throws FlightExceptions{					//removing flight
 		
 boolean flightToBeDeleted=flightService.deleteFlight(flightId);

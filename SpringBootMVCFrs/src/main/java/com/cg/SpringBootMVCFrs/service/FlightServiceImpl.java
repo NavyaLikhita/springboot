@@ -48,7 +48,7 @@ public class FlightServiceImpl implements FlightService {
 	//Displays all the flights available
 	public List<Flight> viewAllFlight() throws FlightExceptions {
 		// TODO Auto-generated method stub
-		List<Flight> flightList=flightDao.findAll();
+		List<Flight> flightList=flightDao.viewAll();
 		if(flightList.isEmpty()) {
 			
 			throw new FlightExceptions("NO FLIGHT IS AVAILABLE");

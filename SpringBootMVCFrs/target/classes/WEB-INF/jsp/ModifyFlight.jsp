@@ -12,7 +12,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <style type="text/css">
@@ -55,7 +55,7 @@ a {
 		</div>
 
 		<div class="row text center">
-			<form:form action="searched" method="GET">
+			<form:form action="/flight/modify/search" method="GET">
 				<div class="input-field col s6">
 					<input id="id" type="number" class="validate" name="flight_id" required>
 					<label class="active">Flight Id:</label>
@@ -68,7 +68,7 @@ a {
 		</div>
 		<div class="row">
 			<div class="card col s4 offset-s4 center">
-				<form:form action="/modified" method="POST"
+				<form:form action="/flight/modified" method="POST"
 					modelAttribute="flight">
 					<div class="row">
 						<h5>Update Flight</h5>
@@ -115,7 +115,26 @@ a {
 	<script>
 	</script>
 	
-	
+	<script src='<c:url value = "/webjars/lib/jquery/jquery.min.js"/>'></script>
+	<script
+		src='<c:url value = "/webjars/lib/jquery/jquery-migrate.min.js"/>'></script>
+	<script
+		src='<c:url value = "/webjars/lib/bootstrap/js/bootstrap.bundle.min.js"/>'></script>
+	<script src='<c:url value = "/webjars/lib/easing/easing.min.js"/>'></script>
+	<script src='<c:url value = "/webjars/lib/wow/wow.min.js"/>'></script>
+	<script
+		src='<c:url value = "/webjars/lib/waypoints/waypoints.min.js"/>'></script>
+	<script
+		src='<c:url value = "/webjars/lib/counterup/counterup.min.js"/>'></script>
+	<script src='<c:url value = "/webjars/lib/superfish/hoverIntent.js"/>'></script>
+	<script
+		src='<c:url value = "/webjars/lib/superfish/superfish.min.js"/>'></script>
+
+	<!-- Contact Form JavaScript File -->
+	<script src='<c:url value = "/webjars/contactform/contactform.js" />'></script>
+
+	<!-- Template Main Javascript File -->
+	<script src='<c:url value = "/webjars/js/main.js" />'></script>
 	
 	<script type="text/javascript">
 	

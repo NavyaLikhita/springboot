@@ -43,7 +43,7 @@ a {
 		</div>
 
 		<div class="row text center">
-			<form:form action="found" method="GET">
+			<form:form action="/flight/found" method="GET">
 				<div class="input-field col s6">
 					<input id="id" type="number" class="validate" name="flight_id" required>
 					<label class="active">Flight Id:</label>

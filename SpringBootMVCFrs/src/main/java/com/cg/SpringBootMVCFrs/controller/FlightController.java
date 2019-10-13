@@ -28,7 +28,9 @@ import com.cg.SpringBootMVCFrs.service.FlightService;
 
 /**
  * @author NAVYA
- *
+ *description: Controller for Flight 
+ * created date: 09/10/2019
+ * modified: 12/10/2019
  */
 @ComponentScan
 @Controller
@@ -48,7 +50,7 @@ public class FlightController {
 	}
 
 	// Will Open Page To Add Flight 
-	@GetMapping(value = "/add")
+	@GetMapping(value = "/flight/add")
 	public String getAddFlightPage(@ModelAttribute("flight") Flight flight) {
 		
 		
@@ -58,7 +60,7 @@ public class FlightController {
 	}
 
 	// Will Add The New Flight Details And Display Them
-	@PostMapping(value = "/added")
+	@PostMapping(value = "/flight/added")
 	public ModelAndView addFlight(@Valid@ModelAttribute("flight") Flight flight, BindingResult result) throws FlightExceptions {
 		if(result.hasErrors()) {
 			
@@ -86,7 +88,7 @@ public class FlightController {
 	}
 
 	// Display The Available Flights
-	@GetMapping(value = "/show")
+	@GetMapping(value = "/flight/view")
 	public ModelAndView getShowFlightsPage() throws FlightExceptions {
 		
 		
@@ -96,7 +98,7 @@ public class FlightController {
 	}
 
 	// Will Open Page To Search Flight 
-	@GetMapping(value = "/search")
+	@GetMapping(value = "/flight/search")
 	public String getSearchFlightPage() {
 		
 			return "SearchFlight";
@@ -105,7 +107,7 @@ public class FlightController {
 	}
 
 	// Shows The Searched Flight Details
-	@GetMapping(value = "/found")
+	@GetMapping(value = "/flight/found")
 	public ModelAndView getSearchFlightsResult(@RequestParam("flight_id") BigInteger flightId) throws FlightExceptions {
 		
 		
@@ -116,7 +118,7 @@ public class FlightController {
 	}
 
 	// Will Open Page To Modify Flight 
-	@GetMapping(value = "/modify")
+	@GetMapping(value = "/flight/modify")
 	public String getModifyFlightPage(@ModelAttribute("flight") Flight flight) {
 		
 			return "ModifyFlight";
@@ -124,7 +126,7 @@ public class FlightController {
 	}
 
 	// Shows The Flight To Be Modified
-	@GetMapping(value = "/searched")
+	@GetMapping(value = "/flight/modify/search")
 	public ModelAndView getEditFlightsSearchResult(@RequestParam("flight_id") BigInteger flightId,
 			@ModelAttribute("flight") Flight flight) throws FlightExceptions {
 		
@@ -134,7 +136,7 @@ public class FlightController {
 	}
 
 	// Modifies The Flight And Returns To--
-	@PostMapping(value = "/modified")
+	@PostMapping(value = "/flight/modified")
 	public ModelAndView modifyFlight(@ModelAttribute("flight") Flight flight) throws FlightExceptions {
 		
 			flightService.modifyFlight(flight);
@@ -143,7 +145,7 @@ public class FlightController {
 	}
 
 	// Will Open Page To Modify Flight 
-	@GetMapping(value = "/remove")
+	@GetMapping(value = "/flight/remove")
 	public String getRemoveFlightPage(@ModelAttribute("flight") Flight flight) {
 		
 		
@@ -153,7 +155,7 @@ public class FlightController {
 	}
 
 	// Shows The Flight To Be Removed
-	@GetMapping(value = "/removesearch")
+	@GetMapping(value = "/flight/remove/search")
 	public ModelAndView getRemoveFlightsSearchResult(@RequestParam("flight_id") BigInteger flightId,
 			@ModelAttribute("flight") Flight flight) throws FlightExceptions {
 		
@@ -162,7 +164,7 @@ public class FlightController {
 	}
 
 	//Removes The Flight And Returns To--
-	@PostMapping(value = "/removed")
+	@PostMapping(value = "/flight/removed")
 	public ModelAndView flightRemove(@RequestParam("flight_id") BigInteger flightId) throws FlightExceptions {
 		
 			flightService.deleteFlight(flightId);

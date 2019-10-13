@@ -55,7 +55,7 @@ a {
 		</div>
 
 		<div class="row text center">
-			<form:form action="removesearch" method="GET">
+			<form:form action="/flight/remove/search" method="GET">
 				<div class="input-field col s6">
 					<input id="id" type="number" class="validate" name="flight_id"
 						value="${flight.flightId}" required> <label class="active">Flight
@@ -69,7 +69,7 @@ a {
 		</div>
 		<div class="row">
 			<div class="card col s4 offset-s4 center">
-				<form:form action="removed" method="POST">
+				<form:form action="/flight/removed" method="POST">
 					<div class="row">
 						<ul class="collection with-header">
 							<li class="collection-item">

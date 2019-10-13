@@ -53,7 +53,7 @@ a {
 	<div class="container">
 		<div class="row">
 			<div class="card col s4 offset-s4 center">
-				<form:form action="added" method="POST" modelAttribute="flight" id="form" >
+				<form:form action="/flight/added" method="POST" modelAttribute="flight" id="form" >
 					<div class="row">
 						<h5>Add Flight</h5>
 						<br>
@@ -192,7 +192,7 @@ function goBack() {
 		 function check_capacity() {
 				var length = $("#seat_capacity").val().length;
 				
-				if(length<1 || length>1000){
+				if(length<1 ){
 					$("#capacity_error").html("Please enter appropriate seat capacity!");
 					$("#capacity_error").show();
 					error_carrier = true;
