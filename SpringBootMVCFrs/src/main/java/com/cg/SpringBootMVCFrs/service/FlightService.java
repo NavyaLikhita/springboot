@@ -8,14 +8,23 @@ import java.math.BigInteger;
 import java.util.List;
 
 import com.cg.SpringBootMVCFrs.dto.Flight;
-import com.cg.SpringBootMVCFrs.exception.CustomGenericExeption;
+
 import com.cg.SpringBootMVCFrs.exception.FlightExceptions;
 
 
+/*
+ * Author: NAVYA 
+ * Description: flight service
+ *  Created Date: 09/10/2019 
+ *  Last Modified:
+ * -
+ */
 
 public interface FlightService {
 
-	//Method to 
+	
+	
+	//Method to add flight
 public  Flight addFlight(Flight flight);
 	//Method to view all flight available
 	public List<Flight> viewAllFlight() throws FlightExceptions;

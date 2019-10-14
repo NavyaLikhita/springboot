@@ -4,7 +4,7 @@
 package com.cg.SpringBootMVCFrs.exception;
 
 
-import com.cg.SpringBootMVCFrs.SpringBootMvcFrsApplication;
+
 
 /**
  * @author NAVYA
@@ -12,7 +12,7 @@ import com.cg.SpringBootMVCFrs.SpringBootMvcFrsApplication;
  */
 public class FlightExceptions extends Exception{
 
-	// private static final Logger logger = LoggerFactory.getLogger(FlightExceptions.class);
+	
 	
 	/**
 	 * 

@@ -32,7 +32,7 @@ import com.cg.SpringBootMVCFrs.SpringBootMvcFrsApplication;
 	@Table(name="flight")
 	public class Flight {
 
-		// private static final Logger logger = LoggerFactory.getLogger(Flight.class);
+	
 
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)

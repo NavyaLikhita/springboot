@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class SpringBootFrsApplication {
-	//private static final Logger logger = LoggerFactory.getLogger(SpringBootFrsApplication.class);
+	private static final Logger logger = LoggerFactory.getLogger(SpringBootFrsApplication.class);
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootFrsApplication.class, args);
-		//logger.info("Running.");
+		logger.info("Running.");
 	}
 
 }

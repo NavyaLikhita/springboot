@@ -4,7 +4,7 @@
 package com.cg.SpringBootMVCFrs.exception;
 
 
-import com.cg.SpringBootMVCFrs.SpringBootMvcFrsApplication;
+
 
 /**
  * @author NAVYA
@@ -12,10 +12,17 @@ import com.cg.SpringBootMVCFrs.SpringBootMvcFrsApplication;
  */
 public class CustomGenericExeption extends RuntimeException {
 
-	// private static final Logger logger = LoggerFactory.getLogger(CustomGenericExeption.class);
-	/**
-	 * 
+
+	/*
+	 * Author: NAVYA 
+	 * Description: Exception class
+	 *  Created Date: 09/10/2019 
+	 *  Last Modified:
+	 * -
 	 */
+	
+	
+	
 	private static final long serialVersionUID = 1L;
 
 	

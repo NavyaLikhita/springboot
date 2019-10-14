@@ -20,7 +20,14 @@ import com.cg.SpringBootMVCFrs.dto.Flight;
 
 public interface FlightDao extends JpaRepository<Flight, BigInteger> {
 
-	
+
+	/*
+	 * Author: NAVYA 
+	 * Description: Repository of flight for adding,view and find
+	 *  Created Date: 09/10/2019 
+	 *  Last Modified:
+	 * -
+	 */
 	
 	//Saves flight
 	public Flight save(Flight flight);
